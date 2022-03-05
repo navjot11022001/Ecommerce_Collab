@@ -1,25 +1,20 @@
 const express = require("express");
 const app=express();
-const PORT=process.env.PORT || 5500;
+const PORT=process.env.PORT || 5000;
 const path=require("path");
+require("./db/conn");
+
+
 
 app.use(express.urlencoded({extended:false}));
 // middleware while incomming request will be parsed 
 app.use(express.json());
 
+require("./models/productSchema");
+app.use(require("./routes/productRoutes"));
 
-
-app.get("/",(req,res)=>{
-
-    res.send("json")
-})
-
-
-
-
-
-
-
+const seedDb=require("./seed");
+seedDb();
 
 
 app.listen(PORT,()=>{
