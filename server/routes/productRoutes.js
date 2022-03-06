@@ -5,19 +5,6 @@ const mongoose=require("mongoose");
 const Product=mongoose.model("Product")
 
 router.get("/",async(req,res)=>{
-try{
-const product=await Product.find({});
-res.json({product});
-}
-catch(err){
-console.log("not getting all posts "+err);
-}
-
-})
-
-
-
-router.get("/",async(req,res)=>{
     try{
     const product=await Product.find({});
     res.json({product});
