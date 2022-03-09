@@ -32,6 +32,7 @@ router.get("/",async(req,res)=>{
 
 router.post("/createPosts",async (req,res)=>{
     try{
+        console.log("peeche aayi kya")
 const {name,price,img,desc}=req.body;
 if(!name || !price || !img || !desc){
     return res.status(422).json({error:"please add all the fields"});
@@ -40,8 +41,12 @@ if(!name || !price || !img || !desc){
 const product=new Product({
     name,price,img,desc
 });
-const result=await product.save();
-   res.json({posted:result});
+ product.save().then(result=>{
+     res.json({posted:result});
+
+ }).catch(err=>{
+     console.log(err);
+ })
     }
     catch(err){
 console.log("unable to post "+err);
