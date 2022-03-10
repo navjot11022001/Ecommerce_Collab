@@ -7,6 +7,7 @@ import AllProducts from "./components/screens/AllProducts"
 import Home from "./components/screens/Home"
 import CreateProducts from "./components/screens/Createproduct"
 import Addtocart from "./components/screens/Addtocart"
+import Logger from './components/screens/loginscreen/Logger';
 
 const App=()=> {
   return (
@@ -15,7 +16,6 @@ const App=()=> {
    <Navbar/>
    <Switch >
 <Route exact path="/">
-
 <Home/>
 </Route>
 
@@ -31,6 +31,11 @@ const App=()=> {
 
 <Route exact path="/product/new">
 <CreateProducts/>
+</Route>
+
+
+<Route path="/login">
+<Logger/>
 </Route>
 
    </Switch>

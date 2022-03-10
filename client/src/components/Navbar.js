@@ -20,6 +20,9 @@ const Navbar=()=>{
             <li className="nav-item"> 
               <Link className="nav-link" to="/addtocart">Cart</Link>
             </li>
+            <li className="nav-item"> 
+              <Link className="nav-link" to="/login">Login</Link>
+            </li>
         </ul>
     {/* <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
 
