@@ -1,13 +1,22 @@
 const express=require("express");
-const routes=express.Routes();
-const mongoose=require("mongoosee");
+const router=express.Router();
+const mongoose=require("mongoose");
 const bcrypt=require("bcryptjs");
 const User=mongoose.model("User");
 const jwt=require("jsonwebtoken");
+const requiredLogin = require("../middleware/requiredLogin");
 const jwtSecret=process.env.JWT
 
+router.get('/protected',requiredLogin,(req,res)=>{
+    
+    res.send("hello");
+})
+  router.get("/",(req,res)=>{
+      res.send("yeah kya h")
+  })
 
-routes.post("/signup",async (req,res)=>{
+router.post("/signup",async (req,res)=>{
+    console.log("Calling signup route");
 const {name,email,password}=req.body;
 if(!email|| !password||!name){
     return res.status(422).json({error:"please add all the fields"});
@@ -22,6 +31,7 @@ bcrypt.hash(password,12).then(hashedpassword=>{
         email,password:hashedpassword,name,isAdmin:false
     })
     user.save().then(user=>{
+        console.log(user)
         res.json({message:"saved successfully"})
     }).catch(err=>{
         console.log(err);
@@ -40,7 +50,7 @@ bcrypt.hash(password,12).then(hashedpassword=>{
 })
 
 
-routes.post("/login",(req,res)=>{
+router.post("/login",(req,res)=>{
 
     const {email,password}=req.body;
 if(!email || ! password){
@@ -56,7 +66,9 @@ User.findOne({email:email}).then(savedUser=>{
 
            const token=jwt.sign({_id:savedUser._id},jwtSecret);
             const {_id,name,email}=savedUser
+            console.log(token+ ", " +name+ " "+ email);
             res.json({token,user:{_id,name,email}});
+            
             // res.json({message:"successfully acha signedin "})
         }else{
             return res.status(422).json({error:"Invalid credentials"});
@@ -68,3 +80,8 @@ User.findOne({email:email}).then(savedUser=>{
 })
 
 })
+
+
+
+module.exports=router 
+   

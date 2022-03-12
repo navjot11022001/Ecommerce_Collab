@@ -4,10 +4,12 @@ import {Switch,Route} from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import Navbar from "./components/Navbar"
 import AllProducts from "./components/screens/AllProducts"
-import Home from "./components/screens/Home"
+import Home from "./components/screens/homescreen/Home"
 import CreateProducts from "./components/screens/Createproduct"
 import Addtocart from "./components/screens/Addtocart"
 import Logger from './components/screens/loginscreen/Logger';
+
+
 
 const App=()=> {
   return (

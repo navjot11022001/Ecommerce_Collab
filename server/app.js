@@ -11,8 +11,9 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 require("./models/productSchema");
+require("./models/User");
 app.use(require("./routes/productRoutes"));
-
+app.use(require("./routes/auth"));
 const seedDb=require("./seed");
 seedDb();
 

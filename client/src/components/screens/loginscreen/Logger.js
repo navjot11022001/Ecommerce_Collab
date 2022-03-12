@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 
+
 import "./logger.css";
 import log from "./img/log.jpg";
 import registerImg from "./img/registerImg.jpg";
+import { useHistory } from "react-router-dom";
 
 function Logger() {
+  
+const history=useHistory();
   const [clicked, setClicked] = useState(false);
 
   const handleSignUpClick = () => {
@@ -45,6 +49,47 @@ function Logger() {
       [name]: value,
     });
   };
+  const finalSignup=()=>{
+    fetch("/signup",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        name:userSignup.name,password:userSignup.password,email:userSignup.email
+      })
+    }).then(res=>res.json()).then(data=>{
+      if(data.error){
+
+      }
+    })
+  }
+
+const finalLogin=()=>{
+if(userLogin.email){
+fetch("/login",{
+  method:"POST",
+  headers:{
+    "Content-Type":"application/json",
+  },
+body:JSON.stringify({
+ password: userLogin.password,
+ email: userLogin.email
+})
+}).then(res=>res.json()).then(data=>{
+  console.log(data);
+if(data.error){
+  console.log("error h kuch");
+}
+else{
+  alert("success");
+console.log(data);
+
+}
+})
+
+}
+}
 
   // const register = () => {
   //   console.log("Entered Register");
@@ -89,7 +134,7 @@ function Logger() {
             <input
               type="submit"
               value="Login"
-              onClick=""
+              onClick={finalLogin}
               className="btn solid"
             />
           </form>
@@ -99,7 +144,7 @@ function Logger() {
               <i className="fas fa-user"></i>
               <input
                 type="text"
-                placeholder="Name"
+                placeholder="Name" 
                 name="name"
                 onChange={handleRegisterChange}
                 required
