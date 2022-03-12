@@ -1,6 +1,6 @@
 const express = require("express");
 const app=express();
-const PORT=process.env.PORT || 5000;
+const PORT=process.env.PORT || 5500;
 const path=require("path");
 require("./db/conn");
 
@@ -14,8 +14,8 @@ require("./models/productSchema");
 require("./models/User");
 app.use(require("./routes/productRoutes"));
 app.use(require("./routes/auth"));
-const seedDb=require("./seed");
-seedDb();
+// const seedDb=require("./seed");
+// seedDb();
 
 
 app.listen(PORT,()=>{

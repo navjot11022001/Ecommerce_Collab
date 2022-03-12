@@ -1,0 +1,165 @@
+.productCard
+{
+    font-family: 'Marko One', serif !important;
+
+    border: 2px solid black;
+    border-radius: 5%;
+   /* .. height: 300px; */
+    width: 300px !important;
+    margin: 10px;
+    /* ..background-color: aquamarine; */
+    padding: 10px;
+
+    font-family: 'Signika Negative', sans-serif;
+    
+}
+
+
+.productCard:hover
+{
+    box-shadow: 3px 3px 3px #1BBFE9;
+    transform: scale(1.01);
+}
+
+.productCard h1,h2,h3
+{
+    margin: 0;
+    
+}
+
+.productCard h4{
+    text-align: center;
+}
+
+.price
+{
+    text-align: right;
+    font-size: medium;
+    /* ..margin-right: 10%; */
+}
+
+.imageDiv
+{
+    text-align: center;
+}
+
+.productCard img
+{
+   height: 200px;
+   /* ..width: 100%; */
+   margin: auto;
+   width: 250px;
+   /* ..border-radius: 50%; */
+} 
+
+
+.brand
+{
+    text-align: center;
+    font-weight: bold;
+    /* color: gray !important; */
+}
+
+.delivery
+{
+    color: green;
+    /* ..margin-left: 30%; */
+
+    font-size: medium;
+    text-align: right;
+}
+
+.addToCartDiv{
+    text-align: center;
+}
+
+.addToCart
+{
+    margin-top: 0;
+    padding: 5px;
+    width: 60%;
+    border-radius: 30px;
+    /* background-color: rgb(234, 248, 35); */
+    font-size: larger;
+    background-color: #fff;
+    /* border: 2px solid rgb(253, 199, 20); */
+    margin-top:15px;
+    height: 50px;
+}
+.addToCart:hover{
+    background-color: #1BBFE9;
+    color:#fff;
+    border:none;
+}
+.quantity
+{
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+.orangeButton
+{
+    background-color: #1BBFE9;
+    color:#fff;
+    border:none;
+}
+
+
+hr
+{
+    margin-bottom: 0;
+    border: 1px solid black;
+    
+}
+
+h3.price
+{
+    margin-bottom: 0;
+}
+
+.brand{
+    /* ..background-color: rgb(250, 107, 54); */
+    text-decoration: solid;
+    color: black;
+    /* ..border-radius: 50%; */
+    margin-bottom: 20px;
+}
+
+.priceDiv
+{
+    /* ..background-color: coral; */
+    margin-top: 10px;
+    text-align: right;
+    margin-bottom: 0; 
+    
+}
+
+.mrp
+{
+    text-decoration: line-through;
+} 
+
+.lower_section
+{
+    
+    padding:10px;
+    border-radius: 10%;
+    margin-top: 20px;
+} 
+
+.buyNow
+{
+    padding: 5px;
+    width: 60%;
+    border-radius: 10%;
+    background-color: rgb(234, 248, 35);
+    font-size: larger;
+    border: 2px solid rgb(253, 199, 20);
+    margin-top: 10px;
+}

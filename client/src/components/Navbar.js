@@ -5,6 +5,7 @@ const Navbar=()=>{
         
             <nav className="navbar  navbar-expand-lg navbar-dark">
     <div className="container">
+    
       <Link className="navbar-brand" to="/"><i className="fas fa-shopping-basket"></i>Shopping Cart</Link>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>

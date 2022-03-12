@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import "./product.css"
 
 const Product = (props) => {
-    const [showbutton,setShowButton]=useState(true);
-    const {img,desc,price,name,increaseCount,count}=props;
-    const [Quantity, setQuantity] = useState(0);
+    // const [showbutton,setShowButton]=useState(true);
+   const {img,name,description,price}=props
+    // const [Quantity, setQuantity] = useState(0);
 
     const [cart, setCart] = useState('Add To Cart');
 
@@ -12,19 +13,19 @@ const Product = (props) => {
         setCart('Added to Cart')
     }
 
-    function increment()
-    {
-        if(cart !== 'Added to Cart')
-        {
+    // function increment()
+    // {
+    //     if(cart !== 'Added to Cart')
+    //     {
 
-        setQuantity(Quantity+1);
-       increaseCount(count);
-        }
-        else
-        {
-            alert('Already Added in the Cart');
-        } 
-    }
+    //     // setQuantity(Quantity+1);
+    // //    increaseCount(count);
+    //     }
+    //     else
+    //     {
+    //         alert('Already Added in the Cart');
+    //     } 
+    // }
 
 
   return (
@@ -43,20 +44,21 @@ const Product = (props) => {
    </div>
 
 
-  {showbutton===true && 
+  {/* {showbutton===true &&  */}
   
    <div className='addToCartDiv'>
    <button  className={cart === 'Added to Cart' ? 'orangeButton addToCart big-button':'whiteButton addToCart big-button'} onClick={(event)=>{
            update();
-           increment();
+        //    increment();
         //    searchBrand(brand)
-       }}><b>{cart}</b></button>
+       }}
+    >
+       <b>{cart}</b></button>
    {/* <button className='buyNow'><b>Buy Now</b></button> */}
    </div>
 
 
-  }
- 
+  
 
    
    </div>

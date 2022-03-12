@@ -1,0 +1,9 @@
+.parentProduct
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 5%;
+    padding-bottom: 20px;
+}
+

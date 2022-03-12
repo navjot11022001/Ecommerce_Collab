@@ -8,6 +8,7 @@ import Home from "./components/screens/homescreen/Home"
 import CreateProducts from "./components/screens/Createproduct"
 import Addtocart from "./components/screens/Addtocart"
 import Logger from './components/screens/loginscreen/Logger';
+import SearchBar from './components/SearchBar';
 
 
 
@@ -16,6 +17,7 @@ const App=()=> {
    <>
    
    <Navbar/>
+   <SearchBar/>
    <Switch >
 <Route exact path="/">
 <Home/>

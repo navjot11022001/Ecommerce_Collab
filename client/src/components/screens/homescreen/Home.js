@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import Typical from "react-typical"
-import "./home.css"
+import "./home.css";
 const Home = () => {
+  
   return (
     <>
     <section id="header" className="d-flex align-items-center">
@@ -43,7 +44,7 @@ const Home = () => {
 
                 <div className=" mrgn col-md-6 order-1 order-md-2">
                   <img
-                    src=""
+                    src="https://media.istockphoto.com/photos/pretty-young-woman-stylishly-dressed-in-a-straw-hat-with-color-bags-picture-id1033729610?k=20&m=1033729610&s=612x612&w=0&h=56u-S8LPU2gL5CO3kSF9wq_PV4kSY5oVl7Hhm-0fshg="
                     className="img-fluid animated"
                     alt="home img"
                   />
