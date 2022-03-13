@@ -1,16 +1,28 @@
 import React, { useState } from 'react'
 import "./product.css"
-
-const Product = (props) => {
-    // const [showbutton,setShowButton]=useState(true);
-   const {img,name,description,price}=props
-    // const [Quantity, setQuantity] = useState(0);
+import { useDispatch,useSelector } from 'react-redux';
+import {addProduct} from '../../actions/actions-type';
+const Product = ({product}) => {
+    
+   const {img,name,desc,price}=product
+    const dispatch=useDispatch();
+    const presentList=useSelector((state)=>state.cartReducer)
+    const pastList=useSelector((state)=>state.productReducer)
+// console.log(presentList);
+// console.log(pastList);
 
     const [cart, setCart] = useState('Add To Cart');
 
-    function update()
+    function update(product)
     {
-        setCart('Added to Cart')
+        if(cart==="Add To Cart"){
+        setCart('Added to Cart');
+        
+        dispatch(addProduct({cartList:[...presentList.cartList,product],count:presentList.count+1}));
+        }
+        else{
+            alert("Dear, its already added ");
+        }
     }
 
     // function increment()
@@ -48,7 +60,7 @@ const Product = (props) => {
   
    <div className='addToCartDiv'>
    <button  className={cart === 'Added to Cart' ? 'orangeButton addToCart big-button':'whiteButton addToCart big-button'} onClick={(event)=>{
-           update();
+           update(product);
         //    increment();
         //    searchBrand(brand)
        }}

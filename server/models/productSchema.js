@@ -19,6 +19,10 @@ img:{
 desc:{
     type:String,
     trim:true,
+},
+qty:{
+    type:Number,
+    min:0,
 }
 });
 

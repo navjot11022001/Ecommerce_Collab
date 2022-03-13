@@ -4,6 +4,7 @@ import { useDispatch,useSelector } from 'react-redux';
 import { setProduct } from '../actions/actions-type';
 import Load from "./productScreen/Load"
 import Carous from './productScreen/Carous';
+import SearchBar from '../SearchBar';
 
 const AllProducts = () => {
 const myState=useSelector((state)=>state.productReducer)
@@ -28,6 +29,7 @@ fetch("/products",{
 if(Loader=== true){
   return (
     <>
+    <SearchBar/>
  <Carous/>
 
 <Products/> 

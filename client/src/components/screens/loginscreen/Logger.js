@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 
-
 import "./logger.css";
 import log from "./img/log.jpg";
 import registerImg from "./img/registerImg.jpg";
 import { useHistory } from "react-router-dom";
+import {setUser} from "../../actions/actions-type"
+import { useDispatch } from "react-redux";
 
 function Logger() {
-  
-const history=useHistory();
+  const history = useHistory();
+  const dispatch=useDispatch();
   const [clicked, setClicked] = useState(false);
 
   const handleSignUpClick = () => {
@@ -33,7 +34,6 @@ const history=useHistory();
     });
   };
 
-  
   const [userSignup, setUserSignup] = useState({
     name: "",
     email: "",
@@ -49,59 +49,55 @@ const history=useHistory();
       [name]: value,
     });
   };
-  const finalSignup=()=>{
-    fetch("/signup",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
+  const finalSignup = () => {
+    fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      body:JSON.stringify({
-        name:userSignup.name,password:userSignup.password,email:userSignup.email
+      body: JSON.stringify({
+        name: userSignup.name,
+        password: userSignup.password,
+        email: userSignup.email,
+      }),
+    }).then(res => res.json())
+      .then((data) => {
+        if (data.error) {
+        alert("sorry unable to login");
+        }
+        else{
+alert("signupped successfully");
+
+}
+      });
+  };
+
+  const finalLogin = () => {
+    if (userLogin.email) {
+      fetch("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          password: userLogin.password,
+          email: userLogin.email,
+        }),
       })
-    }).then(res=>res.json()).then(data=>{
-      if(data.error){
-
-      }
-    })
-  }
-
-const finalLogin=()=>{
-if(userLogin.email){
-fetch("/login",{
-  method:"POST",
-  headers:{
-    "Content-Type":"application/json",
-  },
-body:JSON.stringify({
- password: userLogin.password,
- email: userLogin.email
-})
-}).then(res=>res.json()).then(data=>{
-  console.log(data);
-if(data.error){
-  console.log("error h kuch");
-}
-else{
-  alert("success");
-console.log(data);
-
-}
-})
-
-}
-}
-
-  // const register = () => {
-  //   console.log("Entered Register");
-  //   const { name, email, password, reEnterPassword } = userSignup;
-  //   if (name && email && password && password === reEnterPassword) {
-  //     axios.post("http://localhost:9000/register", userSignup).then((res) => {
-  //       alert(res.data.message);
-  //     });
-  //   } else {
-  //     alert("Invalid Inputs");
-  //   }
-  // };
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.error) {
+            console.log("error h kuch");
+          } else {
+            alert("success");
+            console.log(data);
+            dispatch(setUser(data));
+            history.push("/");
+          }
+        });
+    }
+  };
 
   return (
     <div className={`appcontainer ${clicked ? "sign-up-mode" : ""}`}>
@@ -134,7 +130,7 @@ console.log(data);
             <input
               type="submit"
               value="Login"
-              onClick={finalLogin}
+              onClick={()=>finalLogin()}
               className="btn solid"
             />
           </form>
@@ -144,7 +140,7 @@ console.log(data);
               <i className="fas fa-user"></i>
               <input
                 type="text"
-                placeholder="Name" 
+                placeholder="Name"
                 name="name"
                 onChange={handleRegisterChange}
                 required
@@ -181,7 +177,7 @@ console.log(data);
               />
             </div>
             <input
-              onClick={()=>console.log("fs")}
+              onClick={() => finalSignup()}
               type="submit"
               className="btn"
               value="Sign up"

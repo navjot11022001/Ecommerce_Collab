@@ -39,7 +39,7 @@ if(!name || !price || !img || !desc){
 
 }
 const product=new Product({
-    name,price,img,desc
+    name,price,img,desc,qty:1
 });
  product.save().then(result=>{
      res.json({posted:result});

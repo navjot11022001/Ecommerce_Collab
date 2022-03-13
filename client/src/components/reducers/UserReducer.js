@@ -1,5 +1,5 @@
  const initialState=null;
- const UserReducer=(state=initialState,action)=>{
+ const UserReducer=(state={initialState:initialState},action)=>{
 // if(action.type==="USER")
 // {
 //     return action.payload;
@@ -7,9 +7,13 @@
 // if(action.type==="CLEAR"){
 //     return null
     switch(action.type){
-        case "USER":return action.payload;
+        case "SET_USER":return {
+         ...state, initialState:action.payload
+        }
 
-            case "CLEAR":return null;
+            case "REMOVE_USER":return{
+                initialState:null
+            }
          
         default:
             return state

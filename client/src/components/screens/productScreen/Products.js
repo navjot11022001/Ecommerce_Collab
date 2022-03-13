@@ -123,11 +123,8 @@ console.log(myState);
    {
 myState.productList.product.map((index) => {
      return (
-       <Product 
-         img={index.img}
-          description={index.desc}
-          price={index.price}
-          name={index.name}
+       <Product key={index._id}
+        product={index}
         />
   );
     })}
