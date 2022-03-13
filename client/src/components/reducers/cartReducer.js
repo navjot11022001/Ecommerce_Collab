@@ -52,7 +52,7 @@ case "REMOVE_ITEM":
             let updatedTotalAmount = price * qty;
             accum.totalAmount += updatedTotalAmount;
   
-            accum.totalItem += qty;
+            accum.count += qty;
             return accum;
           },
           {
@@ -60,7 +60,7 @@ case "REMOVE_ITEM":
             totalAmount: 0,
           }
         );
-return { ...state,totalAmount:totalAmount};
+return { ...state,count,totalAmount};
         
 default:
     return state
