@@ -24,11 +24,10 @@ const Home = () => {
                     />
                   </h1>{" "}
                   <h1>
-                    <strong className="brand-name">Photo Junction </strong>
+                    <strong className="brand-name"> Welcome to The Shopy.! </strong>
                   </h1>
                   <h2 className="my-3">
-                    We are the team of talented Photographers and
-                    Cinematographers 🎥 !
+                    Our Motive is to Serve to be Remembered!
                   </h2>
                   <div className="mt-3">
                     <NavLink
