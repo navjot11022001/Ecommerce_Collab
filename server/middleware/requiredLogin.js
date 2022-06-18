@@ -21,8 +21,4 @@ return res.status(401).json({error:"You must me logged in"});
         next();
     })
 })
-
-
-
-
 }

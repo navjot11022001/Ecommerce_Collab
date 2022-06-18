@@ -130,45 +130,7 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            {/* <li className="nav-item">
-              <Link className="nav-link" to="/products">
-                Products
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/product/new">
-                New
-              </Link>
-            </li>
-            <li className="nav-item">
-              
-              <Link className="nav-link" to="/addtocart">
-                <div className="cart">
-                  <span className="count">{count}</span>
-                  <i className="material-icons">shopping_cart</i>
-                </div>
-              </Link>
-            </li>
-            {/* <li className="nav-item"> 
-              <Link className="nav-link" to="/addtocart">Cart</Link>
-            </li> *
-            
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                <i
-                  className="fa fa-sign-in me-1"
-                  style={{ color: "black" }}
-                  aria-hidden="true"
-                ></i>
-                Login
-              </Link>
-
-            </li>
-              
-            */}
-            {renderList()}
-          </ul>
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">{renderList()}</ul>
         </div>
       </div>
     </nav>
