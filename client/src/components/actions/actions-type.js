@@ -52,3 +52,10 @@ export const removeItem = (id) => {
           
         })
     }
+    export const searchFunctionalty=(searched)=>{
+        return ({
+            type:"SEARCH_FUNCTIONALITY",
+            payload:searched
+            
+        })
+    }

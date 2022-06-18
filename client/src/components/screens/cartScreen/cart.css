@@ -2,34 +2,7 @@
 
 
 
-/* 
-:root {
-  --main-color: #333;
-  --primary-color: #acacac;
-  --icon-color: #525252;
-} */
-
-/* i {
-  width: 2rem;
-  height: 2rem; */
-/* } */
-
-/* .fa, */
-/* .fas {
-  font-weight: 900;
-  display: grid;
-  place-items: center;
-  font-size: 1.6rem;
-  cursor: pointer;
-} */
-
-/* body {
-  width: 80%;
-  height: 100vh;
-  margin: auto;
-} */
-
-/* header {
+header {
   width: 100%;
   line-height: 10rem;
   display: grid;
@@ -37,7 +10,7 @@
   border-bottom: 0.1rem solid #9a9191;
   transform: rotate(-0.05deg);
   margin-bottom: 7rem;
-} */
+}
 
 .continue-shopping {
   display: flex;

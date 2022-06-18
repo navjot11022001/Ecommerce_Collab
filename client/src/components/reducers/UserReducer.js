@@ -11,7 +11,7 @@
          ...state, initialState:action.payload
         }
 
-            case "REMOVE_USER":return{
+            case "REMOVE_USER":return{ 
                 initialState:null
             }
          

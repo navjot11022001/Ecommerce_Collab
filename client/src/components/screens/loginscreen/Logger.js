@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-
 import "./logger.css";
 import log from "./img/log.jpg";
 import registerImg from "./img/registerImg.jpg";
 import { useHistory } from "react-router-dom";
-import {setUser} from "../../actions/actions-type"
+import { setUser } from "../../actions/actions-type";
 import { useDispatch } from "react-redux";
-
+import Swal from "sweetalert2";
 function Logger() {
   const history = useHistory();
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const [clicked, setClicked] = useState(false);
 
   const handleSignUpClick = () => {
@@ -49,7 +48,8 @@ function Logger() {
       [name]: value,
     });
   };
-  const finalSignup = () => {
+  const finalSignup = (e) => {
+    e.preventDefault();
     fetch("/signup", {
       method: "POST",
       headers: {
@@ -60,19 +60,32 @@ function Logger() {
         password: userSignup.password,
         email: userSignup.email,
       }),
-    }).then(res => res.json())
+    })
+      .then((res) => res.json())
       .then((data) => {
         if (data.error) {
-        alert("sorry unable to login");
+          Swal.fire({
+            icon: "error",
+            title: "Invalid credentials",
+            text: "Something went wrong!",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+        } else {
+          Swal.fire({
+            title: "Successfull Signed up",
+            text: "Alert successful",
+            icon: "success",
+            confirmButtonText: "OK",
+            showConfirmButton: false,
+            timer: 1000,
+          });
         }
-        else{
-alert("signupped successfully");
-
-}
       });
   };
 
-  const finalLogin = () => {
+  const finalLogin = (e) => {
+    e.preventDefault();
     if (userLogin.email) {
       fetch("/login", {
         method: "POST",
@@ -88,12 +101,24 @@ alert("signupped successfully");
         .then((data) => {
           console.log(data);
           if (data.error) {
-            console.log("error h kuch");
+            Swal.fire({
+              icon: "error",
+              title: "Invalid credentials",
+              text: "Something went wrong!",
+              showConfirmButton: false,
+              timer: 1000,
+            });
           } else {
-            alert("success");
-            console.log(data);
             dispatch(setUser(data));
             history.push("/");
+            Swal.fire({
+              title: "Successfull logged in",
+              text: "Alert successful",
+              icon: "success",
+              confirmButtonText: "OK",
+              showConfirmButton: false,
+              timer: 1000,
+            });
           }
         });
     }
@@ -103,7 +128,7 @@ alert("signupped successfully");
     <div className={`appcontainer ${clicked ? "sign-up-mode" : ""}`}>
       <div className="forms-appcontainer">
         <div className="signin-signup">
-          <form action="#" className="sign-in-form">
+          <form action="" className="sign-in-form">
             <h2 className="title">Sign in</h2>
             <div className="input-field">
               <i className="fas fa-user"></i>
@@ -130,7 +155,7 @@ alert("signupped successfully");
             <input
               type="submit"
               value="Login"
-              onClick={()=>finalLogin()}
+              onClick={finalLogin}
               className="btn solid"
             />
           </form>

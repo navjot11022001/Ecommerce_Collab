@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {searchFunctionalty} from "./actions/actions-type"
+const SearchBar = (props) => {
 
-const SearchBar = () => {
+
+
   return (
     <div className="container d-flex" style={{ marginTop: "3.9rem" }}>
       <img
@@ -14,7 +18,7 @@ const SearchBar = () => {
           className="searchInput"
           placeholder="Search Items   &#xf002;"
           onChange={(e) => {
-            //   setSearchProduct(e.target.value);
+              props.setState(e.target.value)
           }}
         ></input>
         {/* <button className='searchButton'>Search</button> */}

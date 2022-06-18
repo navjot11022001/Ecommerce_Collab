@@ -20,9 +20,9 @@ const dispatch=useDispatch();
         </div>
 
         <div className="add-minus-quantity">
-          <i className="fas fa-minus minus" onClick={() => dispatch(decrement(_id))}></i>
+          <i className="fas fa-minus minus ii" onClick={() => dispatch(decrement(_id))}></i>
           <input type="text" placeholder={qty} />
-          <i className="fas fa-plus add" onClick={() => dispatch(increment(_id))}></i>
+          <i className="fas fa-plus add ii" onClick={() => dispatch(increment(_id))}></i>
         </div>
 
         <div className="price">
